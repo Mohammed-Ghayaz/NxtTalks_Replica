@@ -1,0 +1,659 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Container for video and gradient */
+.background-container {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+/* Video background */
+.background-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    opacity: 1; /* Make sure video covers the entire background */
+    z-index: 0;
+}
+
+/* Gradient overlay */
+.background-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #1e293b, #1e293b 20%, transparent, transparent);
+    z-index: 1;
+}
+
+/* Content on top of the video and gradient */
+.content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding-top: 5%;
+    padding-left: 5%;
+    font-size: 2rem;
+}
+
+.under-text{
+    font-size: 16px;
+    font-weight: normal;
+    text-align: end;
+}
+
+
+.slider-container {
+    position: relative;
+    width: 60%;
+    margin-top: 12px;
+    height: 250px;
+    overflow: hidden; 
+    animation: slideUp 3s infinite;
+}
+
+/* Paragraphs to slide */
+.slider-container h1 {
+    position: absolute;
+    width: 100%;
+    top: 100%; /* Initially positioned below the view */
+    left: 0;
+    opacity: 0;
+    transition: all 1s ease; /* Smooth slide and fade effect */
+}
+
+/* Active paragraph that slides up */
+.slider-container h1.active {
+    top: 0; /* Slide it into view */
+    opacity: 1; /* Make it visible */
+}
+
+/* Hide previous paragraph (slide up out of view) */
+.slider-container h1.inactive {
+    top: -100%; /* Slide it out of view above */
+    opacity: 0;
+}
+
+
+
+.about-podcast{
+    font-size: 53px;
+    font-weight: 510;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+
+.green-text{
+    color: #a3e635
+}
+
+.company-image{
+    vertical-align: middle;
+    margin-left: 5px;
+    width: auto;
+    height: 50px;
+}
+
+.btn-1{
+    width: 380px;
+    height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 6px;
+}
+
+.btn-1:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Shadow effect */
+  }
+
+.primary-btn{
+    background-color: #2563eb;
+    border-width: 0px;
+}
+
+.transparent-btn{
+    background-color: transparent;
+    border-color: white;
+}
+
+.get-podcast-text{
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+.modal-content{
+    background-color: #1e293b;
+    padding: 8%;
+    color: white;
+    width: 65vw;
+    height: 85vh;
+    left: -35%;
+    text-align: left;
+    
+}
+
+#sgModal .btn-close{
+    color: white;
+}
+
+.company-logo{
+    margin-right: 9px;
+}
+
+.tick-mark{
+    margin-right: 14px;
+}
+
+
+#secondSection{
+    background-color: #0f172a;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+}
+
+#secondSection h1{
+    font-size: 50px;
+}
+
+/* Outer container for the logo strips */
+.logo-slider {
+    width: 100%; 
+    margin-top: 70px;
+    overflow: hidden; /* Hide anything outside of the container */
+    position: relative;
+}
+
+/* Container holding both images */
+.logo-strip-container {
+    display: flex;
+    width: 400%; 
+    animation: slide 40s linear infinite; /* Animation to slide the container */
+}
+
+
+
+
+/* Keyframe animation for sliding the entire container */
+@keyframes slide {
+    0% {
+        transform: translateX(0); /* Start at the first image */
+    }
+    100% {
+        transform: translateX(-50%); /* Move the entire container left by 50% to show the second image */
+    }
+}
+
+.companies-img{
+    height: 60px;
+    width: auto;
+    margin-right: 75px;
+}
+
+
+#thirdSection{
+    padding: 6%;
+    color: white;
+    background-image: linear-gradient(to bottom right, #a3e635, #1e293b, #1e293b, #1e293b, #1e293b, #4a4637);
+    text-align: center;
+    line-height: 1.5;
+}
+
+#thirdSection h1{
+    font-size: 50px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#thirdSection p{
+    color: #c4c8d5;
+    font-size: 22px;
+}
+
+.selected{
+    background-color: #c4c8d5;
+    color: #1e293b;
+    margin: 10px;
+    height: 40px;
+    width: max-content;
+    font-size: 15px;
+    border-radius: 40px;
+    border-width: 0px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+
+.unselected{
+    background-color: #1e293b;
+    color: white;
+    border-color: #c4c8d5;
+    border-style: solid;
+    border-width: 1px;
+    width: max-content;
+    margin: 10px;
+    padding-top: 8px; 
+    font-size: 15px;
+    height: 40px;
+    border-radius: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.podcast-card{
+    border-radius: 12px;
+    margin: auto;
+}
+
+.podcast-content{
+    width: 300px;
+    background-color: #334155;
+    padding: 5px;
+    padding: 17px;
+    text-align: left;
+    color: #c3cedb;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-size: 14px;
+}
+
+.card-image{
+    height: 195px;
+    width: 300px;
+    background-size: cover;
+}
+
+.modal-img{
+    height: 70px;
+    width: 70px;
+    border-radius: 70px;
+    margin-right: 15px;
+}
+
+.img-1{
+    background-image: url('https://nxtwave-website-media-files.s3.ap-south-1.amazonaws.com/ccbp-website/podcast/rare-collection-of-insider-knowledge/sandeep.png');
+}
+
+.img-2{
+    background-image: url('https://nxtwave-website-media-files.s3.ap-south-1.amazonaws.com/ccbp-website/podcast/rare-collection-of-insider-knowledge/pritesh.png');
+}
+
+.img-3{
+    background-image: url('https://nxtwave-website-media-files.s3.ap-south-1.amazonaws.com/ccbp-website/podcast/rare-collection-of-insider-knowledge/sanjay.png');
+}
+
+.trailer-button{
+    background-color: #60a5fa;
+    height: 27px;
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+    color: white;
+    border-radius: 25px;
+    width: 35%;
+}
+
+.trailer-play{
+    height: 16px;
+    border-radius: 16px;
+    width: 16px;
+    padding: 0;
+    margin: 5px;
+    background-color: white;
+}
+
+.video-container {
+    display: none;
+    position: relative;
+    width: 560px;
+    height: 315px;
+    margin-top: 20px;
+}
+
+/* Styling for the close ("X") button */
+.close-button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ff0000;
+    color: white;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling the video iframe */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.trailer-play img{
+    height: 12px;
+    width: 10px;
+    margin: 3px;
+}
+
+#fourthSection{
+    background-color: #0f172a;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+}
+
+#fourthSection h1{
+    font-size: 50px;
+}
+
+.happy-feedbacks-div{
+    background-color: #211f25;
+    color: #f59e0b;
+    border-color: #f59e0b;
+    border-style: solid;
+    border-width: 1px;
+    height: 50px;
+    font-weight: 500;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 25px;
+    border-radius: 50px;
+}
+
+
+.profile-card {
+    background-color: #1e293b;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 250px;
+  }
+  
+  .profile-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .profile-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-block;
+  }
+
+  .linkedin-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+  }
+
+  .profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .read-more {
+    color: #0d6efd;
+    cursor: pointer;
+  }
+
+  /* Custom carousel control colors */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: transparent;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  #fifthSection{
+    padding: 8%;
+    color: white;
+    background-image: linear-gradient(to bottom right, #a3e635, #1e293b, #1e293b, #1e293b, #1e293b, #4a4637);
+    line-height: 1.5;
+  }
+
+  #fifthSection h1{
+    font-size: 55px;
+    font-weight: 500;
+    margin-bottom: 6%;
+  }
+
+  #seventhSection{
+    padding: 3%;
+    color: white;
+    background-image: linear-gradient(to bottom right, #a3e635, #1e293b, #1e293b, #1e293b, #1e293b, #4a4637);
+    font-size: 25px;
+  }
+
+  #eighthSection{
+    background-color: #0f172a;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .last-page-headings{
+    font-size: 23px;
+    color: #4b6c84;
+    margin-bottom: 12px;
+  }
+
+  .explore-more-links{
+    font-size: 17px;
+    color: #586272;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .explore-more-links:hover{
+    color: white
+  }
+
+  ul{
+    padding: 0;
+    margin: 0;
+  }
+
+  .payment-method img{
+    width: 60px;
+    margin-right: 15px;
+    margin-bottom: 12px;
+  }
+
+.extra-info{
+    color: #3a4455;
+    width: max-content;
+    text-align: center;
+    margin-right: 22px;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.extra-info:hover{
+    color: white;
+}
+
+.address-block{
+    width: 230px;
+    color: #586272;
+    font-weight: 500;
+    padding: 0;
+    margin-top: 15%;
+}
+
+.address-block img{
+    height: 20px;
+    margin-right: auto;
+}
+
+#sixthSection{
+    background-color: #0f172a;
+    padding: 8%;
+    color: white;
+    font-weight: 500;
+}
+
+#sixthSection h1{
+    font-size: 50px;
+}
+
+
+.form{
+    width: 30vw;
+}
+
+label{
+    font-size: 16px;
+    color: white;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background-color: #334155;
+    border-radius: 10px;
+    border-style: solid;
+    height: 37px;
+    margin-top: 5px;
+    color: #94a0b5; 
+    margin-bottom: 25px;
+    border-width: 1px;
+    border-color: #94a0b5;
+}
+
+.input-container span {
+    margin-right: 8px;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: #94a0b5; /* Fixed text color */
+}
+
+.input-container select{
+    color: #94a0b5;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    border: none;
+}
+
+
+
+.input-container input{
+    border: none;
+    width: 80%;
+    height: 33px;
+    padding: 8px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+}
+
+input{
+    width: 100%;
+    padding: 8px;
+    height: 37px;
+    background-color: #334155;
+    color: #94a0b5;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #94a0b5;
+    border-radius: 10px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+input::placeholder{
+    color: #94a0b5;
+}
+
+.form button{
+    width: 100%;
+}
+
+
+
+#backToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position */
+    bottom: 30px; /* Place it at the bottom */
+    right: 30px; /* Place it 30px from the right */
+    z-index: 99; /* Ensure it appears above other content */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: rgba(255, 255, 255, 0.2); /* Background color */
+    color: black; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 10px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #backToTopBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+     /* Darker background on hover */
+  }
+
+  .arrow{
+    color: black;
+    font-size: 25px;
+    font-weight: bolder;
+  }
+
+  /* Style for the progress bar container */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px; /* Thickness of the progress bar */
+    width: 0%;   /* Start at 0 width */
+    background-color: #4caf50; /* Color of the progress bar */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+  
